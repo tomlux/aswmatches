@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Tabellen-Karussell mit Sponsoren</title>
+    <title>matcher.asw.lu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,7 +20,22 @@
             transform: translateY(-50%);
         }
 
-        /* Variante A: scrollender Banner */
+        body {
+            padding-bottom: 90px;
+        }
+
+        .sponsor-banner-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ccc;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
         .sponsor-banner-scroll {
             overflow: hidden;
             position: relative;
@@ -31,7 +46,7 @@
 
         .sponsor-track {
             display: inline-flex;
-            animation: scroll-left 10s linear infinite;
+            animation: scroll-left 20s linear infinite;
             white-space: nowrap;
         }
 
@@ -49,28 +64,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Variante B: fade-in/out */
-        .sponsor-banner-fade {
-            height: 80px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .sponsor-fade {
-            display: none;
-            position: absolute;
-            transition: opacity 1s ease;
-        }
-
-        .sponsor-fade.active {
-            display: block;
-            opacity: 1;
-        }
-
         .sponsor-fade img {
             height: 60px;
             object-fit: contain;
@@ -80,25 +73,55 @@
 <body>
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Tabellen-Karussell</h2>
+    <h2 class="text-center mb-4">matcher.asw.lu</h2>
 
-    <!-- Bootstrap Carousel -->
     <div id="tableCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
         <div class="carousel-inner">
-            <!-- Beispiel Tabellen -->
             <div class="carousel-item active">
                 <div class="table-responsive">
                     <table class="table table-bordered text-center">
-                        <thead><tr><th>Spalte A</th><th>Spalte B</th></tr></thead>
-                        <tbody><tr><td>1</td><td>2</td></tr></tbody>
+                        <thead><tr><th>1.Ekipp</th><th>HeemMatcher</th></tr></thead>
+                        <tbody>
+                        <tr><td>17/08/2025</td><td>AS Wincrange - FF Norden 02 Weiswampach-Hupperdange</td></tr>
+                        <tr><td>31/08/2025</td><td>AS Wincrange - FC Käerch</td></tr>
+                        <tr><td>14/09/2025</td><td>AS Wincrange - Jeunesse Schieren</td></tr>
+                        <tr><td>05/10/2025</td><td>AS Wincrange - Avenir Beggen</td></tr>
+                        <tr><td>19/10/2025</td><td>AS Wincrange - Jeunesse Gilsdorf</td></tr>
+                        <tr><td>02/11/2025</td><td>AS Wincrange - Sporting Mertzig</td></tr>
+                        <tr><td>30/11/2025</td><td>AS Wincrange - FC Kehlen</td></tr>
+                        <tr><td>22/02/2026</td><td>AS Wincrange - FC Bastendorf 47</td></tr>
+                        <tr><td>08/03/2026</td><td>AS Wincrange - Young Boys Diekirch</td></tr>
+                        <tr><td>22/03/2026</td><td>AS Wincrange - Blo-Wäiss Medernach</td></tr>
+                        <tr><td>04/04/2026</td><td>AS Wincrange - AS Hosingen</td></tr>
+                        <tr><td>19/04/2026</td><td>AS Wincrange - Alliance Aischdall Hobscheid-Eischen</td></tr>
+                        <tr><td>29/04/2026</td><td>AS Wincrange - Minerva Lintgen</td></tr>
+                        <tr><td>03/05/2026</td><td>AS Wincrange - AS Rupensia Lusitanos Larochette</td></tr>
+                        <tr><td>17/05/2026</td><td>AS Wincrange - Jeunesse Useldange</td></tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="table-responsive">
                     <table class="table table-bordered text-center">
-                        <thead><tr><th>Name</th><th>Alter</th></tr></thead>
-                        <tbody><tr><td>Anna</td><td>30</td></tr></tbody>
+                        <thead><tr><th>1.Ekipp</th><th>AuswärtsMatcher</th></tr></thead>
+                        <tbody>
+                        <tr><td>24/08/2025</td><td>FC Bastendorf 47 - AS Wincrange</td></tr>
+                        <tr><td>10/09/2025</td><td>Young Boys Diekirch - AS Wincrange</td></tr>
+                        <tr><td>28/09/2025</td><td>Blo-Wäiss Medernach - AS Wincrange</td></tr>
+                        <tr><td>12/10/2025</td><td>AS Hosingen - AS Wincrange</td></tr>
+                        <tr><td>26/10/2025</td><td>Alliance Aischdall Hobscheid-Eischen - AS Wincrange</td></tr>
+                        <tr><td>16/11/2025</td><td>Minerva Lintgen - AS Wincrange</td></tr>
+                        <tr><td>23/11/2025</td><td>AS Rupensia Lusitanos Larochette - AS Wincrange</td></tr>
+                        <tr><td>07/12/2025</td><td>Jeunesse Useldange - AS Wincrange</td></tr>
+                        <tr><td>01/03/2026</td><td>FC Käerch - AS Wincrange</td></tr>
+                        <tr><td>15/03/2026</td><td>Jeunesse Schieren - AS Wincrange</td></tr>
+                        <tr><td>29/03/2026</td><td>Avenir Beggen - AS Wincrange</td></tr>
+                        <tr><td>12/04/2026</td><td>Jeunesse Gilsdorf - AS Wincrange</td></tr>
+                        <tr><td>26/04/2026</td><td>Sporting Mertzig - AS Wincrange</td></tr>
+                        <tr><td>10/05/2026</td><td>FC Kehlen - AS Wincrange</td></tr>
+                        <tr><td>23/05/2026</td><td>FF Norden 02 Weiswampach-Hupperdange - AS Wincrange</td></tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -114,27 +137,21 @@
     </div>
 </div>
 
-<!-- Variante A: Scrollender Sponsor-Banner -->
-<div class="sponsor-banner-scroll mt-5 py-3 d-none" id="sponsor-scroll">
+<div class="sponsor-banner-fixed d-flex align-items-center" id="sponsor-scroll">
     <div id="sponsor-track" class="sponsor-track d-flex align-items-center"></div>
 </div>
 
-<!-- Variante B: Fade-in/out Banner -->
-<div class="sponsor-banner-fade mt-5 py-3 d-none" id="sponsor-fade">
-    <!-- Dynamisch gefüllt -->
-</div>
-
-<!-- Bootstrap & Script -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Beispielhafte Sponsoren-Daten
     const sponsors = [
-        { name: "Sponsor A", logo: "https://via.placeholder.com/120x60?text=A", url: "https://example.com/a" },
-        { name: "Sponsor B", logo: "https://via.placeholder.com/120x60?text=B", url: "https://example.com/b" },
-        { name: "Sponsor C", logo: "https://via.placeholder.com/120x60?text=C", url: "https://example.com/c" },
-        { name: "Sponsor D", logo: "https://via.placeholder.com/120x60?text=D", url: "https://example.com/d" },
-        { name: "Sponsor E", logo: "https://via.placeholder.com/120x60?text=E", url: "https://example.com/e" }
+        { name: "3S-Tech", logo: "/images/logos/3STech.png", url: "https://3s-tech.lu/" },
+        { name: "Esso 'Op der Féitsch'", logo: "/images/logos/EssoFeitsch.png", url: "https://essoallerborn.lu/" },
+        { name: "Fenster Mersch", logo: "/images/logos/FensterMersch.png", url: "https://www.fenstermersch.lu/" },
+        { name: "ImmoPartner", logo: "/images/logos/ImmoPartner.png", url: "https://www.immopartner.lu/" },
+        { name: "Menuiserie Reckinger", logo: "/images/logos/MenuiserieReckinger.png.", url: "https://menuiserie-reckinger.lu/" },
+        { name: "Nord Design Shop", logo: "/images/logos/NordicDesignShop.png", url: "https://nordicdesignshop.lu/" },
+        { name: "OSCH", logo: "/images/logos/Osch.png", url: "https://osch.lu/" },
     ];
 
     function shuffle(array) {
@@ -145,7 +162,6 @@
         return array;
     }
 
-    // === Variante A: scrollender Banner ===
     function renderScrollingSponsors() {
         const shuffled = shuffle([...sponsors]);
         const track = document.getElementById("sponsor-track");
@@ -166,42 +182,7 @@
         document.getElementById("sponsor-scroll").classList.remove("d-none");
     }
 
-    // === Variante B: fade-in/out ===
-    function renderFadingSponsors() {
-        const shuffled = shuffle([...sponsors]);
-        const container = document.getElementById("sponsor-fade");
-
-        shuffled.forEach((sponsor, index) => {
-            const wrapper = document.createElement("a");
-            wrapper.href = sponsor.url;
-            wrapper.target = "_blank";
-            wrapper.title = sponsor.name;
-            wrapper.classList.add("sponsor-fade");
-            if (index === 0) wrapper.classList.add("active");
-
-            const img = document.createElement("img");
-            img.src = sponsor.logo;
-            img.alt = sponsor.name;
-
-            wrapper.appendChild(img);
-            container.appendChild(wrapper);
-        });
-
-        container.classList.remove("d-none");
-
-        // Wechsle aktiv alle 3 Sekunden
-        let current = 0;
-        const logos = container.querySelectorAll(".sponsor-fade");
-        setInterval(() => {
-            logos[current].classList.remove("active");
-            current = (current + 1) % logos.length;
-            logos[current].classList.add("active");
-        }, 1500);
-    }
-
-    // === Aktivieren: Wähle nur eine Variante! ===
     renderScrollingSponsors();  // 🔁 Variante A: scroll
-    // renderFadingSponsors();  // 🟰 Variante B: fade
 </script>
 </body>
 </html>
